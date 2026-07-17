@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cutveo — For brands that ship every week</title>
+<meta name="description" content="Cutveo is an edit-first partner for brands and businesses who already have the footage. Short-form, long-form, repurposing and motion — cut, captioned, and shipped on schedule.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233355EE'/%3E%3Crect x='8' y='8' width='16' height='16' rx='4' fill='%2314141C'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='900' font-size='11' text-anchor='middle' fill='%23fff'%3Eveo.%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --blue:#3355EE; --ink:#14141C; --paper:#FAFAFB; --mist:#EDEDF1; --slate:#71717F;
+    --ink-card:#1c1c26; --ink-line:#2a2a36;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html{overflow-x:hidden}
+  body{background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased}
+  .display{font-family:'Archivo',sans-serif; font-weight:900; letter-spacing:-.025em; text-transform:none}
+  .mono{font-family:'Inter',sans-serif; font-weight:600; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px}
+  img{display:block; max-width:100%}
+  a{color:inherit}
+  button{font-family:inherit}
+
+  /* ---------- logo ---------- */
+  .logo{font-family:'Archivo',sans-serif; font-weight:900; font-size:1.3rem; text-decoration:none; letter-spacing:-.02em}
+  .logo .veo{color:var(--blue)}
+  .logo.on-dark{color:#fff}
+  .logo.on-light{color:var(--ink)}
+
+  /* ---------- nav ---------- */
+  nav{position:sticky; top:0; z-index:50; background:rgba(20,20,28,.82); backdrop-filter:blur(10px); border-bottom:1px solid var(--ink-line)}
+  .nav-in{display:flex; align-items:center; justify-content:space-between; height:76px}
+  .nav-links{display:flex; gap:32px; font-size:.88rem; color:#c4c4cc}
+  .nav-links a{text-decoration:none; transition:color .15s}
+  .nav-links a:hover{color:#fff}
+  .btn{display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:.86rem; border:none; cursor:pointer; transition:all .18s; text-decoration:none}
+  .btn-pill-light{background:#fff; color:var(--ink); padding:11px 20px; border-radius:99px}
+  .btn-pill-light:hover{transform:translateY(-2px)}
+  .btn-outline{border:1px solid var(--ink-line); color:#fff; background:transparent; padding:13px 26px; border-radius:99px}
+  .btn-outline:hover{background:#fff; color:var(--ink)}
+  .btn-blue{background:var(--blue); color:#fff; padding:13px 26px; border-radius:10px}
+  .btn-blue:hover{filter:brightness(1.1)}
+  .btn-mist{background:var(--mist); color:var(--ink); padding:13px 26px; border-radius:10px}
+  .btn-mist:hover{background:#e2e2e8}
+  .btn-ink-outline{border:1px solid #d8d8de; color:var(--ink); background:transparent; padding:11px 20px; border-radius:99px; font-size:.8rem}
+  .btn-ink-outline:hover{background:var(--ink); color:#fff; border-color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--ink); position:relative}
+  .hero-banner{position:relative; height:680px; overflow:hidden; background:var(--paper)}
+  .hero-bg-words{position:absolute; top:0; left:32px; bottom:0; width:200px; overflow:hidden; z-index:0}
+  .word-col{display:flex; flex-direction:column; animation:wordscroll 30s linear infinite}
+  .word-col span{font-family:'Archivo',sans-serif; font-weight:900; font-size:2.6rem; line-height:1.28; color:#e4e4e9; white-space:nowrap}
+  @keyframes wordscroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+  .hero-note{position:absolute; z-index:3; font-size:.86rem; color:var(--slate); line-height:1.35; max-width:15ch}
+  .note-tr{top:9%; right:6%; text-align:right}
+  .note-mr{top:44%; right:4%}
+  .note-ml{top:60%; left:15%}
+  .note-bc{bottom:23%; right:33%; text-align:right}
+  .hero-object{position:absolute; z-index:1; top:50%; left:50%; transform:translate(-50%,-46%); width:min(50%,560px); filter:drop-shadow(0 24px 30px rgba(20,20,28,.16))}
+  .hero-word{position:absolute; font-family:'Archivo',sans-serif; font-weight:900; letter-spacing:-.03em; color:var(--ink); line-height:.85; z-index:2}
+  .hero-word.we{top:20%; left:12%; font-size:clamp(3rem,8vw,6.4rem)}
+  .hero-cta{position:absolute; z-index:2; top:38%; left:14%}
+  .hero-word.are{top:20%; right:10%; font-size:clamp(3rem,8vw,6.4rem)}
+  .hero-word.tag{bottom:6%; right:6%; font-size:clamp(3.4rem,9vw,7.4rem); display:flex; align-items:flex-start; gap:8px}
+  .hero-word.tag .veo{color:var(--blue)}
+  .hero-word.tag sup{font-family:'Inter',sans-serif; font-weight:600; font-size:1.1rem; color:var(--slate); margin-top:6px}
+  .marquee-strip{background:var(--ink); border-top:1px solid var(--ink-line); border-bottom:1px solid var(--ink-line); padding:34px 0; overflow:hidden; white-space:nowrap}
+  .marquee-track{display:inline-flex; align-items:center; gap:44px; animation:scroll 22s linear infinite}
+  .marquee-track span{display:inline-flex; align-items:center; gap:16px; font-family:'Archivo',sans-serif; font-weight:800; font-size:1.7rem; letter-spacing:-.01em; color:#5c5c68}
+  .marquee-track span b{color:var(--blue); font-size:.8rem}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- we edit ---------- */
+  .weedit{background:var(--ink); padding:96px 0 120px}
+  .weedit-grid{display:grid; grid-template-columns:1fr 1.5fr 1fr; align-items:center; gap:20px}
+  .weedit-big{font-size:clamp(3rem,8vw,6.4rem); color:#fff; line-height:.85}
+  .weedit-big.blue{color:var(--blue); text-align:right}
+  .services-card{background:var(--ink-card); border:1px solid var(--ink-line); border-radius:20px; padding:44px}
+  .services-card .label{color:var(--slate); letter-spacing:.14em}
+  .services-card h2{color:#fff; font-family:'Archivo',sans-serif; font-weight:800; font-size:1.9rem; letter-spacing:-.015em; margin-top:18px; line-height:1.28}
+  .services-list{margin-top:34px; display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--ink-line)}
+  .services-list .svc{padding:24px 24px 24px 0; border-bottom:1px solid var(--ink-line)}
+  .services-list .svc:nth-child(odd){border-right:1px solid var(--ink-line); padding-right:24px}
+  .services-list .svc:nth-child(even){padding-left:24px}
+  .services-list .t{color:#fff; font-weight:600; font-size:1.15rem}
+  .services-list .d{color:#8b8b96; font-size:.95rem; margin-top:6px}
+
+  /* ---------- recent edits ---------- */
+  .showcase{background:var(--ink); padding:20px 0 130px; text-align:center; position:relative; overflow:hidden}
+  .showcase-label{color:#8b8b96}
+  .showcase-stack{position:relative; max-width:1180px; height:620px; margin:20px auto 0}
+  .ghost{position:absolute; font-size:clamp(4.5rem,9vw,7.2rem); color:#20202b; white-space:nowrap; z-index:0; left:50%; transform:translateX(-50%)}
+  .ghost.g1{top:32%}
+  .ghost.g2{top:52%}
+  .stack-card{position:absolute; border-radius:14px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,.5)}
+  .stack-card img{width:100%; height:100%; object-fit:cover}
+  .sc1{left:9%; top:22%; width:19%; height:52%; transform:rotate(-8deg); z-index:1;
+    background:#0c0c14;
+    background-image:repeating-linear-gradient(179deg, rgba(90,120,255,.55) 0px, rgba(90,120,255,.35) 1px, transparent 1.5px, transparent 7px),
+                      repeating-linear-gradient(1deg, rgba(90,120,255,.25) 0px, transparent 1px, transparent 11px)}
+  .sc2{left:17%; top:46%; width:16%; height:42%; transform:rotate(6deg); z-index:2;
+    background:linear-gradient(135deg,#101a4a 0%,#2946d9 32%,#6d8bff 55%,#2946d9 76%,#0e1640 100%);
+    background-image:linear-gradient(135deg,#101a4a 0%,#2946d9 32%,#6d8bff 55%,#2946d9 76%,#0e1640 100%),
+                      repeating-linear-gradient(45deg, rgba(255,255,255,.08) 0 2px, transparent 2px 7px)}
+  .sc3{right:14.5%; top:41%; width:16.5%; height:44%; transform:rotate(-4deg); z-index:2;
+    background:linear-gradient(to bottom,#eeeef2 0%,#eeeef2 50%,#101018 50%,#101018 100%)}
+  .note-card{position:absolute; right:9%; top:20%; z-index:3; background:#fff; color:var(--ink); border-radius:12px; padding:20px 26px; transform:rotate(4deg); box-shadow:0 20px 40px rgba(0,0,0,.4); text-align:left}
+  .note-card .t{font-weight:700; font-size:1.15rem}
+  .note-card .d{color:var(--slate); font-size:.88rem; margin-top:4px}
+
+  /* ---------- results ---------- */
+  .results{background:var(--ink); padding:0 0 130px; text-align:center}
+  .results h2{font-size:clamp(1.8rem,3.8vw,2.6rem); color:#fff}
+  .results .sub{color:#8b8b96; margin-top:10px; font-size:1.02rem}
+  .results-row{margin-top:64px; display:flex; align-items:center; justify-content:center; overflow:visible}
+  .r-item{position:relative; flex-shrink:0; height:260px; width:150px; border-radius:999px; border:1px solid var(--ink-line); background:transparent; margin-left:-20px; overflow:hidden; cursor:pointer; z-index:1; text-decoration:none;
+    transition:width .45s cubic-bezier(.65,0,.35,1), border-radius .45s cubic-bezier(.65,0,.35,1), border-color .35s, background-color .35s, box-shadow .45s}
+  .r-item:first-child{margin-left:0}
+  .r-item .r-vert, .r-item .r-circle{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; transition:opacity .3s ease}
+  .r-item .r-vert{writing-mode:vertical-rl; transform:rotate(180deg); font-family:'Archivo',sans-serif; font-weight:800; font-size:.68rem; letter-spacing:.08em; color:#c4c4cc; text-transform:uppercase; opacity:1}
+  .r-item .r-circle{flex-direction:column; opacity:0; padding:0 22px; text-align:center}
+  .r-item .r-circle .k{font-family:'Inter',sans-serif; font-weight:600; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--slate)}
+  .r-item .r-circle .v{font-family:'Archivo',sans-serif; font-weight:800; font-size:1.2rem; margin-top:8px; line-height:1.25; color:var(--ink)}
+
+  /* default state: the CTA item is the circle, others are pills */
+  .r-item.is-cta{width:260px; border-radius:50%; background:#fff; border-color:transparent; z-index:2; box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .r-item.is-cta .r-vert{opacity:0}
+  .r-item.is-cta .r-circle{opacity:1}
+
+  /* hovering the row: everyone reverts to pill... */
+  .results-row:hover .r-item{width:150px; border-radius:999px; background:transparent; border-color:var(--ink-line); z-index:1; box-shadow:none}
+  .results-row:hover .r-item .r-vert{opacity:1}
+  .results-row:hover .r-item .r-circle{opacity:0}
+
+  /* ...except whichever pill is actually hovered, which blooms into the circle */
+  .results-row:hover .r-item:hover{width:260px; border-radius:50%; background:#fff; border-color:transparent; z-index:2; box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .results-row:hover .r-item:hover .r-vert{opacity:0}
+  .results-row:hover .r-item:hover .r-circle{opacity:1}
+
+  /* ---------- pricing ---------- */
+  .pricing-sheet{background:var(--paper); border-radius:32px 32px 0 0; margin-top:-40px; position:relative; z-index:10; padding:90px 0 70px}
+  .pricing-label{color:var(--blue); text-align:center; display:block}
+  .pricing-sheet h2{text-align:center; font-size:clamp(1.7rem,4vw,2.5rem); margin-top:14px}
+  .price-grid{margin-top:52px; display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch}
+  .price-card{background:var(--paper); border:1px solid #e3e3e9; border-radius:16px; padding:30px; display:flex; flex-direction:column; position:relative}
+  .price-card.pop{background:var(--ink); border-color:var(--ink)}
+  .price-card .badge{position:absolute; top:-13px; left:30px; background:var(--blue); color:#fff; font-family:'Archivo',sans-serif; font-weight:800; font-size:.65rem; letter-spacing:.06em; padding:6px 14px; border-radius:99px}
+  .price-card .plan{font-weight:600; color:var(--slate)}
+  .price-card.pop .plan{color:#c4c4cc}
+  .price-card .amt-row{display:flex; align-items:baseline; gap:10px; margin-top:10px; flex-wrap:wrap}
+  .price-card .was{font-family:'Inter',sans-serif; font-weight:600; font-size:1.1rem; color:#b7b7c0; text-decoration:line-through}
+  .price-card.pop .was{color:#54545f}
+  .price-card .amt{font-family:'Archivo',sans-serif; font-weight:900; font-size:2.1rem}
+  .price-card.pop .amt{color:#fff}
+  .price-card .amt sub{font-family:'Inter',sans-serif; font-weight:500; font-size:.9rem; color:var(--slate); vertical-align:baseline}
+  .price-card .launch-note{margin-top:6px; font-family:'Inter',sans-serif; font-weight:600; font-size:.74rem; letter-spacing:.03em; color:var(--blue)}
+  .price-card.pop .launch-note{color:#9db2ff}
+  .price-card .desc{color:var(--ink); font-weight:600; font-size:.92rem; margin-top:18px}
+  .price-card.pop .desc{color:#fff}
+  .price-card .features{list-style:none; margin-top:14px; display:flex; flex-direction:column; gap:10px; flex:1}
+  .price-card .features li{position:relative; padding-left:20px; color:var(--slate); font-size:.86rem; line-height:1.4}
+  .price-card.pop .features li{color:#a9a9b4}
+  .price-card .features li::before{content:'\2713'; position:absolute; left:0; top:0; color:var(--blue); font-weight:700; font-size:.8rem}
+  .price-card .best-for{margin-top:18px; padding-top:16px; border-top:1px solid #e8e8ee; font-size:.8rem; color:var(--slate)}
+  .price-card.pop .best-for{border-color:var(--ink-line); color:#a9a9b4}
+  .price-card .best-for b{color:var(--ink); font-weight:600}
+  .price-card.pop .best-for b{color:#fff}
+  .price-card .btn{width:100%; justify-content:center; margin-top:22px}
+  .quote-prompt{margin-top:38px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; background:var(--mist); border-radius:16px; padding:26px 32px}
+  .quote-prompt .t{font-family:'Archivo',sans-serif; font-weight:800; font-size:1.15rem; letter-spacing:-.01em}
+  .quote-prompt .d{color:var(--slate); font-size:.88rem; margin-top:4px}
+
+  /* ---------- custom quote ---------- */
+  .quote{background:var(--paper); padding:0 0 100px}
+  .quote-card{max-width:760px; margin:0 auto; background:var(--mist); border-radius:24px; padding:48px}
+  .quote-card .k{color:var(--blue); text-align:center; display:block}
+  .quote-card h2{text-align:center; font-size:clamp(1.5rem,3.4vw,2.1rem); margin-top:12px}
+  .quote-card .sub{text-align:center; color:var(--slate); margin-top:10px; font-size:.94rem}
+  .quote-form{margin-top:38px; display:flex; flex-direction:column; gap:26px}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+  .field label{display:flex; justify-content:space-between; align-items:baseline; font-weight:600; font-size:.86rem; color:var(--ink)}
+  .field label .val{font-family:'Archivo',sans-serif; font-weight:800; color:var(--blue)}
+  .field input[type=range]{width:100%; margin-top:12px; accent-color:var(--blue); cursor:pointer}
+  .field input[type=text], .field input[type=email], .field input[type=number]{width:100%; margin-top:10px; padding:13px 16px; border-radius:10px; border:1px solid #dcdce3; background:#fff; font-family:'Inter',sans-serif; font-size:.92rem; color:var(--ink)}
+  .field input:focus{outline:2px solid var(--blue); outline-offset:1px}
+  .budget-field{position:relative}
+  .budget-field .prefix{position:absolute; left:16px; top:44px; color:var(--slate); font-size:.92rem}
+  .field.budget-field input[type=number]{padding-left:30px}
+  .quote-submit{margin-top:6px; width:100%; justify-content:center; padding:15px 26px; font-size:.92rem}
+  .quote-success{display:none; margin-top:38px; text-align:center; background:#fff; border:1px solid #dcdce3; border-radius:16px; padding:32px}
+  .quote-success .t{font-family:'Archivo',sans-serif; font-weight:800; font-size:1.1rem}
+  .quote-success .d{color:var(--slate); font-size:.88rem; margin-top:6px}
+  .quote-card.is-sent .quote-form{display:none}
+  .quote-card.is-sent .quote-success{display:block}
+
+  /* ---------- about ---------- */
+  .about{padding:100px 0}
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center}
+  .about-label{color:var(--blue)}
+  .about h2{font-size:clamp(1.7rem,4vw,2.5rem); margin-top:12px; line-height:1.15}
+  .about p{color:var(--slate); margin-top:16px; max-width:44ch}
+  .about-img{border-radius:18px; overflow:hidden; aspect-ratio:4/3}
+  .about-img img{width:100%; height:100%; object-fit:cover}
+
+  /* ---------- final cta ---------- */
+  .final-cta{padding:40px 0 120px; text-align:center}
+  .final-cta .label{color:var(--blue); display:block}
+  .final-cta h2{font-size:clamp(1.8rem,4.6vw,3rem); margin-top:14px; max-width:18ch; margin-left:auto; margin-right:auto}
+  .final-cta .sub{color:var(--slate); margin-top:14px}
+  .final-cta .btn-row{margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+  .final-cta .btn-outline-light{border:1px solid #d8d8de; color:var(--ink); background:#fff; padding:13px 26px; border-radius:10px; font-weight:600; font-size:.86rem}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--mist); padding:0 0 0}
+  .footer-in{display:flex; align-items:center; justify-content:space-between; padding:26px 0; flex-wrap:wrap; gap:14px}
+  .footer-copy{color:var(--slate); font-size:.82rem}
+  .footer-social{display:flex; gap:22px; font-size:.82rem; color:var(--slate)}
+  .footer-social a{text-decoration:none; transition:color .15s}
+  .footer-social a:hover{color:var(--ink)}
+
+  @media (max-width:900px){
+    .nav-links{display:none}
+    .hero-banner{height:auto; min-height:520px; padding:70px 20px 40px}
+    .hero-bg-words{display:none}
+    .hero-note{display:none}
+    .hero-object{position:static; transform:none; width:70%; margin:20px auto; display:block}
+    .hero-word{position:static; text-align:center; display:block; margin:0 auto}
+    .hero-word.tag{justify-content:center; margin-top:10px}
+    .hero-cta{position:static; display:table; margin:16px auto 0}
+    .weedit-grid{grid-template-columns:1fr; text-align:center}
+    .weedit-big.blue{text-align:center}
+    .services-list{grid-template-columns:1fr}
+    .services-list .svc:nth-child(odd){border-right:none; padding-right:0}
+    .services-list .svc:nth-child(even){padding-left:0}
+    .ghost{display:none}
+    .showcase-stack{height:340px}
+    .note-card{display:none}
+    .results-row{flex-direction:column; gap:16px}
+    .r-item{margin-left:0; width:260px}
+    .r-item:not(.is-cta){height:70px; border-radius:35px}
+    .r-item:not(.is-cta) .r-vert{writing-mode:horizontal-tb; transform:none}
+    .results-row:hover .r-item{width:260px}
+    .results-row:hover .r-item:not(.is-cta):hover{height:70px; border-radius:35px}
+    .results-row:hover .r-item:not(.is-cta):hover .r-vert{writing-mode:horizontal-tb; transform:none; opacity:1}
+    .results-row:hover .r-item:not(.is-cta):hover .r-circle{opacity:0}
+    .price-grid{grid-template-columns:1fr}
+    .quote-prompt{flex-direction:column; text-align:center}
+    .quote-card{padding:32px 24px}
+    .field-row{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo on-dark" href="#top">cut<span class="veo">veo.</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+    </div>
+    <a class="btn btn-pill-light" href="#contact">Book a call</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-banner">
+      <div class="hero-bg-words" aria-hidden="true">
+        <div class="word-col">
+          <span>Edit</span><span>Cut</span><span>Caption</span><span>Motion</span><span>Repurpose</span><span>Short-form</span><span>Long-form</span><span>Retention</span><span>Ship</span>
+          <span>Edit</span><span>Cut</span><span>Caption</span><span>Motion</span><span>Repurpose</span><span>Short-form</span><span>Long-form</span><span>Retention</span><span>Ship</span>
+        </div>
+      </div>
+
+      <div class="hero-note note-tr">Cut for retention.</div>
+      <div class="hero-note note-mr">Shipped weekly.</div>
+      <div class="hero-note note-ml">Pssst &mdash; your footage is fine.</div>
+      <div class="hero-note note-bc">The edit is what's costing you views.</div>
+
+      <img class="hero-object" src="images/h-object.png" alt="Abstract 3D sculptural render">
+
+      <div class="hero-word we display">We</div>
+      <a class="btn btn-ink-outline hero-cta" href="#contact">Book a call &rarr;</a>
+      <div class="hero-word are display">Are</div>
+      <div class="hero-word tag display">cut<span class="veo">veo.</span><sup>[26]</sup></div>
+    </div>
+
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span>SHORT-FORM <b>&#8226;</b></span>
+        <span>LONG-FORM <b>&#8226;</b></span>
+        <span>REPURPOSING <b>&#8226;</b></span>
+        <span>MOTION &amp; CAPTIONS <b>&#8226;</b></span>
+        <span>SHORT-FORM <b>&#8226;</b></span>
+        <span>LONG-FORM <b>&#8226;</b></span>
+        <span>REPURPOSING <b>&#8226;</b></span>
+        <span>MOTION &amp; CAPTIONS <b>&#8226;</b></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WE EDIT -->
+  <section class="weedit" id="services">
+    <div class="wrap weedit-grid">
+      <div class="weedit-big display">WE</div>
+      <div class="services-card">
+        <div class="mono label">[ Services ]</div>
+        <h2>Cutveo is where raw clips become content that holds attention &mdash; cut, captioned, and shipped on schedule.</h2>
+        <div class="services-list">
+          <div class="svc">
+            <div class="t">Short-form editing</div>
+            <div class="d">Reels, TikToks, Shorts cut for retention.</div>
+          </div>
+          <div class="svc">
+            <div class="t">Long-form / YouTube</div>
+            <div class="d">Full episodes, paced and thumbnail-ready.</div>
+          </div>
+          <div class="svc">
+            <div class="t">Repurposing</div>
+            <div class="d">One shoot becomes a week of clips.</div>
+          </div>
+          <div class="svc">
+            <div class="t">Motion &amp; captions</div>
+            <div class="d">On-brand graphics and sound design.</div>
+          </div>
+        </div>
+      </div>
+      <div class="weedit-big display blue">EDIT.</div>
+    </div>
+  </section>
+
+  <!-- RECENT EDITS -->
+  <section class="showcase" id="work">
+    <div class="wrap">
+      <div class="mono showcase-label">[ Recent edits ]</div>
+      <div class="showcase-stack">
+        <div class="ghost display g1">RETENTION</div>
+        <div class="ghost display g2">WATCH-TIME VIEWS</div>
+        <div class="stack-card sc1"></div>
+        <div class="stack-card sc2"></div>
+        <div class="stack-card sc3"></div>
+        <div class="note-card">
+          <div class="t">Brand A &mdash; Reel series</div>
+          <div class="d">short-form / weekly</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results">
+    <div class="wrap">
+      <h2 class="display">Results follow us.</h2>
+      <div class="sub">It's kind of the point.</div>
+      <div class="results-row">
+        <div class="r-item">
+          <div class="r-vert">48H Turnaround</div>
+          <div class="r-circle"><div class="k">Turnaround</div><div class="v">48 Hours</div></div>
+        </div>
+        <div class="r-item">
+          <div class="r-vert">1 Dedicated Editor</div>
+          <div class="r-circle"><div class="k">Your editor</div><div class="v">1 Dedicated Editor</div></div>
+        </div>
+        <a class="r-item is-cta" href="#contact">
+          <div class="r-vert">Book a call</div>
+          <div class="r-circle"><div class="k">Book a call</div><div class="v">First edit this week</div></div>
+        </a>
+        <div class="r-item">
+          <div class="r-vert">2 Revisions</div>
+          <div class="r-circle"><div class="k">Included</div><div class="v">2 Revisions</div></div>
+        </div>
+        <div class="r-item">
+          <div class="r-vert">0 Contracts</div>
+          <div class="r-circle"><div class="k">No lock-in</div><div class="v">0 Contracts</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-sheet" id="pricing">
+    <div class="wrap">
+      <span class="mono pricing-label">Pricing</span>
+      <h2 class="display">Simple plans, no surprise scope.</h2>
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="plan">Long-Form</div>
+          <div class="amt-row"><span class="was">$1,200</span><span class="amt">$800<sub>/mo</sub></span></div>
+          <div class="launch-note">Founding-client launch price</div>
+          <div class="desc">4 long-form videos / month</div>
+          <ul class="features">
+            <li>Story-driven edit, captions, B-roll, music, audio cleanup, motion graphics</li>
+            <li>Color grade + sound design</li>
+            <li>2 revision rounds &middot; 4-day turnaround</li>
+          </ul>
+          <div class="best-for"><b>Best for:</b> creators focused on YouTube growth</div>
+          <button class="btn btn-mist">Get started</button>
+        </div>
+
+        <div class="price-card">
+          <div class="plan">Short-Form</div>
+          <div class="amt-row"><span class="was">$1,050</span><span class="amt">$700<sub>/mo</sub></span></div>
+          <div class="launch-note">Founding-client launch price</div>
+          <div class="desc">15 short-form videos / month</div>
+          <ul class="features">
+            <li>Reels / Shorts / TikTok &mdash; hook-first edits, captions, punchy pacing, sound design</li>
+            <li>Repurposed from your footage or filmed content</li>
+            <li>1 revision round &middot; 3-day turnaround</li>
+          </ul>
+          <div class="best-for"><b>Best for:</b> creators building reach and posting daily</div>
+          <button class="btn btn-mist">Get started</button>
+        </div>
+
+        <div class="price-card pop">
+          <span class="badge">MOST POPULAR</span>
+          <div class="plan">Full Package</div>
+          <div class="amt-row"><span class="was">$2,000</span><span class="amt">$1,400<sub>/mo</sub></span></div>
+          <div class="launch-note">Founding-client launch price</div>
+          <div class="desc">4 long-form + 15 short-form / month</div>
+          <ul class="features">
+            <li>Everything in both packages above</li>
+            <li>Priority 3-day turnaround</li>
+            <li>Monthly performance check-in</li>
+            <li>Saves $250/mo vs buying both separately</li>
+          </ul>
+          <div class="best-for"><b>Best for:</b> creators running a full content engine</div>
+          <button class="btn btn-blue">Get started</button>
+        </div>
+      </div>
+
+      <div class="quote-prompt">
+        <div>
+          <div class="t">Need a different mix?</div>
+          <div class="d">Tell us your volume and budget &mdash; we'll shape a plan around it.</div>
+        </div>
+        <a class="btn btn-ink-outline" href="#custom-quote">Let's talk &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM QUOTE -->
+  <section class="quote" id="custom-quote">
+    <div class="wrap">
+      <div class="quote-card" id="quoteCard">
+        <span class="mono k">Custom quote</span>
+        <h2 class="display">Let's shape a plan around your volume.</h2>
+        <div class="sub">Three quick inputs &mdash; we'll follow up with a plan and a price.</div>
+
+        <form class="quote-form" id="quoteForm" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="quote-request">
+          <p style="position:absolute; left:-9999px">
+            <label>Leave this field empty: <input name="bot-field"></label>
+          </p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="qLong">Long-form videos / month <span class="val" id="qLongVal">4</span></label>
+              <input type="range" id="qLong" name="long_form_videos" min="0" max="20" value="4">
+            </div>
+            <div class="field">
+              <label for="qShort">Short-form videos / month <span class="val" id="qShortVal">15</span></label>
+              <input type="range" id="qShort" name="short_form_videos" min="0" max="60" value="15">
+            </div>
+          </div>
+
+          <div class="field budget-field">
+            <label for="qBudget">Monthly budget (USD)</label>
+            <span class="prefix">$</span>
+            <input type="number" id="qBudget" name="budget" placeholder="2,000" min="0" step="50">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="qName">Name</label>
+              <input type="text" id="qName" name="name" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="qEmail">Email</label>
+              <input type="email" id="qEmail" name="email" placeholder="you@brand.com" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-blue quote-submit">Get my custom quote</button>
+        </form>
+
+        <div class="quote-success">
+          <div class="t">Got it &mdash; thanks!</div>
+          <div class="d">We'll email your custom quote shortly. Talk soon.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="mono about-label">About</span>
+        <h2 class="display">An edit team, not a freelancer roulette.</h2>
+        <p>Cutveo pairs every account with a consistent editor who learns your brand's pacing, voice, and platform mix &mdash; so quality doesn't reset with every upload.</p>
+      </div>
+      <div class="about-img">
+        <img src="images/a-deskteam.png" alt="Video editor working at a desk with multiple monitors">
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="contact">
+    <div class="wrap">
+      <span class="mono label">Book a call</span>
+      <h2 class="display">Send your footage. Get your first edit back this week.</h2>
+      <div class="sub">15-minute call &mdash; no pitch deck, just your next upload.</div>
+      <div class="btn-row">
+        <a class="btn btn-blue" href="#contact">Book a call</a>
+        <a class="btn btn-outline-light" href="mailto:hello@cutveo.com">hello@cutveo.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-in">
+    <a class="logo on-light" href="#top">cut<span class="veo">veo.</span></a>
+    <div class="footer-copy">&copy; 2026 Cutveo. All rights reserved.</div>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const qLong = document.getElementById('qLong');
+  const qShort = document.getElementById('qShort');
+  const qLongVal = document.getElementById('qLongVal');
+  const qShortVal = document.getElementById('qShortVal');
+  qLong.addEventListener('input', () => qLongVal.textContent = qLong.value);
+  qShort.addEventListener('input', () => qShortVal.textContent = qShort.value);
+
+  const quoteForm = document.getElementById('quoteForm');
+  quoteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const body = new URLSearchParams(new FormData(quoteForm)).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
+      .then(() => document.getElementById('quoteCard').classList.add('is-sent'))
+      .catch(() => alert('Something went wrong sending that — please try again or email hello@cutveo.com.'));
+  });
+</script>
+</body>
+</html>
