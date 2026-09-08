@@ -1,0 +1,40 @@
+  <!-- ══ CTA / BOOKING ══ Keep in sync across pages (see partials/cta.html) ══ -->
+  <section class="section cta" id="book" aria-labelledby="book-heading">
+    <div class="container container--narrow">
+      <div class="section-head section-head--center">
+        <p class="mono mono--dark section-head__label">(03) &mdash; Booking</p>
+        <h2 id="book-heading">Ready to Grow Your Channel?</h2>
+        <p class="lead">
+          A 30-minute call. We look at your last few uploads, name what the edit is
+          costing you, and work out whether Cutveo is the right fix. No pitch deck.
+        </p>
+      </div>
+
+      <!-- Booking is a direct link, not an inline widget. It works with JS
+           disabled, pulls in no third-party script, and can't be clipped by an
+           iframe that sizes itself. Event: Calendly "30 Minute - Intro call". -->
+      <div class="booking">
+        <dl class="booking__meta">
+          <div>
+            <dt>Format</dt>
+            <dd>30 minutes, video call</dd>
+          </div>
+          <div>
+            <dt>Joining link</dt>
+            <dd>Sent on confirmation</dd>
+          </div>
+        </dl>
+
+        <a class="btn btn--on-dark btn--lg" href="https://calendly.com/cutveo/30min"
+           target="_blank" rel="noopener noreferrer">
+          Book a Call <span aria-hidden="true">&#8599;</span><span class="sr-only">(opens Calendly in a new tab)</span>
+        </a>
+      </div>
+
+      <!-- TODO(contact): replace with the real inbox. -->
+      <p class="mono mono--dark cta__alt">
+        <span>Prefer email?</span>
+        <a href="mailto:cutveo@gmail.com">cutveo@gmail.com</a>
+      </p>
+    </div>
+  </section>

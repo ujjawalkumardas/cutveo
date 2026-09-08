@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Cutveo</title>
+<meta name="description" content="Long-form YouTube edits and Instagram Reels cut by Cutveo.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projects — Cutveo">
+<meta property="og:description" content="Long-form YouTube edits and Instagram Reels cut by Cutveo.">
+<meta property="og:site_name" content="Cutveo">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="/projects.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ══ HEADER ══ Keep in sync with index.html / about.html (see partials/header.html) ══ -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html" aria-label="Cutveo — home">
+      <span class="logo-mark" aria-hidden="true">veo.</span>
+      <span>cut.veo</span>
+    </a>
+
+    <p class="mono site-header__meta">Video editing &amp; channel management</p>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-overlay">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+      <span class="sr-only">Open menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html">Home</a></li>
+        <li><a class="site-nav__link" href="about.html">About</a></li>
+        <li><a class="site-nav__link" href="projects.html" aria-current="page">Projects</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm" href="#book">Book a Call</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══ OVERLAY MENU ══ Mobile only. Keep in sync across pages. ══ -->
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+  <div class="container nav-overlay__bar">
+    <a class="logo logo--on-dark" href="index.html" aria-label="Cutveo — home">
+      <span class="logo-mark" aria-hidden="true">veo.</span>
+      <span>cut.veo</span>
+    </a>
+    <button class="nav-overlay__close" type="button">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close menu</span>
+    </button>
+  </div>
+
+  <nav class="container" aria-label="Menu">
+    <ul class="nav-overlay__list">
+      <li><a class="nav-overlay__link" href="index.html">Home</a></li>
+      <li><a class="nav-overlay__link" href="about.html">About</a></li>
+      <li><a class="nav-overlay__link" href="projects.html" aria-current="page">Projects</a></li>
+      <li><a class="nav-overlay__link" href="index.html#work">Work</a></li>
+      <li><a class="nav-overlay__link" href="#book">Book a Call</a></li>
+    </ul>
+  </nav>
+
+  <div class="container nav-overlay__foot">
+    <p class="mono mono--dark">cut.veo</p>
+    <p class="mono mono--dark">
+      <a href="https://instagram.com/cut.veo" target="_blank" rel="noopener noreferrer">Instagram &#8599;</a>
+    </p>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ── Gallery ──────────────────────────────────────────────────────────── -->
+  <section class="section section--tight" aria-labelledby="projects-heading">
+    <div class="container">
+      <p class="mono mono-rule section-head__label">
+        <span>Gallery <span data-project-count></span> &mdash; YouTube / Instagram</span>
+      </p>
+
+      <h1 id="projects-heading" class="ghost-head">Projects</h1>
+
+      <p class="lead" style="margin: 0 auto 3.5rem; text-align: center;">
+        Business and documentary explainers &mdash; archive footage, illustrated
+        maps, motion graphics and kinetic type. Horizontal cuts are long-form
+        YouTube; vertical cuts are Reels and Shorts. Role tags describe the work
+        done on each piece.
+      </p>
+
+      <!-- Filter tabs. Buttons act as a tablist over one shared grid. -->
+      <ul class="filter-tabs" id="project-filters" role="tablist" aria-label="Filter projects by platform">
+        <li role="presentation">
+          <button class="filter-tab" type="button" role="tab"
+                  data-filter="all" aria-selected="true" aria-controls="project-grid">All</button>
+        </li>
+        <li role="presentation">
+          <button class="filter-tab" type="button" role="tab"
+                  data-filter="youtube" aria-selected="false" aria-controls="project-grid">YouTube</button>
+        </li>
+        <li role="presentation">
+          <button class="filter-tab" type="button" role="tab"
+                  data-filter="instagram" aria-selected="false" aria-controls="project-grid">Instagram</button>
+        </li>
+      </ul>
+
+      <!-- Cards render from the shared PROJECTS array in js/projects.js.
+           The h2 is screen-reader-only: card titles are h3, so this keeps the
+           heading order h1 -> h2 -> h3 without adding a visible label the
+           filter tabs already provide. -->
+      <h2 class="sr-only">Project list</h2>
+      <ul class="project-grid" id="project-grid" aria-live="polite"></ul>
+
+      <noscript>
+        <p class="placeholder-box" style="margin-top:1.5rem;">
+          Project embeds need JavaScript enabled. In the meantime, the work is on
+          <a href="https://instagram.com/cut.veo" target="_blank" rel="noopener noreferrer">Instagram</a>.
+        </p>
+      </noscript>
+
+      <div class="grid-footer">
+        <p class="mono">C1 &mdash; Cutveo</p>
+        <p class="mono">Scroll to view more</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA / BOOKING ══ Keep in sync across pages (see partials/cta.html) ══ -->
+  <section class="section cta" id="book" aria-labelledby="book-heading">
+    <div class="container container--narrow">
+      <div class="section-head section-head--center">
+        <p class="mono mono--dark section-head__label">(02) &mdash; Booking</p>
+        <h2 id="book-heading">Ready to Grow Your Channel?</h2>
+        <p class="lead">
+          A 30-minute call. We look at your last few uploads, name what the edit is
+          costing you, and work out whether Cutveo is the right fix. No pitch deck.
+        </p>
+      </div>
+
+      <!-- Booking is a direct link, not an inline widget. It works with JS
+           disabled, pulls in no third-party script, and can't be clipped by an
+           iframe that sizes itself. Event: Calendly "30 Minute - Intro call". -->
+      <div class="booking">
+        <dl class="booking__meta">
+          <div>
+            <dt>Format</dt>
+            <dd>30 minutes, video call</dd>
+          </div>
+          <div>
+            <dt>Joining link</dt>
+            <dd>Sent on confirmation</dd>
+          </div>
+        </dl>
+
+        <a class="btn btn--on-dark btn--lg" href="https://calendly.com/cutveo/30min"
+           target="_blank" rel="noopener noreferrer">
+          Book a Call <span aria-hidden="true">&#8599;</span><span class="sr-only">(opens Calendly in a new tab)</span>
+        </a>
+      </div>
+
+      <!-- TODO(contact): replace with the real inbox. -->
+      <p class="mono mono--dark cta__alt">
+        <span>Prefer email?</span>
+        <a href="mailto:cutveo@gmail.com">cutveo@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ Keep in sync with index.html / about.html (see partials/footer.html) ══ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div>
+        <a class="logo" href="index.html" aria-label="Cutveo — home">
+          <span class="logo-mark" aria-hidden="true">veo.</span>
+          <span>cut.veo</span>
+        </a>
+        <p class="mono site-footer__tagline">
+          Video editing and channel management for YouTube and Instagram.
+        </p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h2 class="footer-heading">Site</h2>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="index.html#book">Book a Call</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-list">
+          <!-- TODO(contact): replace with the real inbox. -->
+          <li><a href="mailto:cutveo@gmail.com">cutveo@gmail.com</a></li>
+        </ul>
+
+        <ul class="social-row">
+          <li>
+            <a class="social-link" href="https://instagram.com/cut.veo"
+               target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z"/>
+              </svg>
+              <span class="sr-only">Cutveo on Instagram</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="mono">&copy; <span data-year>2026</span> Cutveo</p>
+      <p class="mono"><a href="https://instagram.com/cut.veo" target="_blank" rel="noopener noreferrer">@cut.veo</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/projects.js" defer></script>
+<script src="js/site.js" defer></script>
+</body>
+</html>
